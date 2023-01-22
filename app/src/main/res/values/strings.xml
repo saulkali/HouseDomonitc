@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HouseDomonitc</string>
+    <string name="ed_username_login">Nombre de usuario o correo electronico</string>
+    <string name="tv_title_login">Inicio Sesion</string>
+    <string name="ed_password_login">Contraseña</string>
+    <string name="tv_forgot_password">Recuperar Contraseña?</string>
+    <string name="btn_text_login">Ingresar</string>
+</resources>
