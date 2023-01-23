@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.fackerdev.housedomonitc.HouseDomoticApplication
 import com.fackerdev.housedomonitc.R
+import com.fackerdev.housedomonitc.common.network.MQTTClient
 import com.fackerdev.housedomonitc.databinding.ActivityLoginBinding
 import com.fackerdev.housedomonitc.modules.moduleLogin.viewModel.LoginActivityViewModel
 
@@ -22,8 +23,6 @@ class LoginActivity : AppCompatActivity() {
         initAnimation()
         setupButtons()
         setupViewModel()
-
-        val application = HouseDomoticApplication()
 
 
     }

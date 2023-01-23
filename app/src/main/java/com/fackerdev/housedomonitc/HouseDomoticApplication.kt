@@ -1,26 +1,23 @@
 package com.fackerdev.housedomonitc
 
 import android.app.Application
-import com.uchuhimo.konf.Config
-import com.uchuhimo.konf.ConfigSpec
+import org.ini4j.Wini
 
 class HouseDomoticApplication:Application() {
-    lateinit var configSpec: ConfigSpec;
-    lateinit var config:Config
+    lateinit var config:Wini
+
     override fun onCreate() {
         super.onCreate()
 
-        setupRedisConfig()
+        setupInitConfig()
     }
 
-    private fun setupRedisConfig() {
-        configSpec = ConfigSpec()
-        configSpec.required<String>("redis","host")
-        configSpec.required<String>("redis","port")
-        configSpec.required<String>("redis","password")
+    private fun setupInitConfig() {
+        config = Wini()
 
-        config = Config{
-            addSpec(configSpec)
-        }.from.file("config.ini")
+        val fileConfig = assets.open("config.ini")
+        config.load(fileConfig)
+        fileConfig.close()
+
     }
 }

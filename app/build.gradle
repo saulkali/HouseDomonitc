@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.fackerdev.housedomonitc"
@@ -29,7 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
     buildFeatures{
         viewBinding true
     }
@@ -43,11 +45,12 @@ dependencies {
 
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
-    //redis
-    implementation("io.github.crackthecodeabhi:kreds:0.8")
 
-    //ini files
-    implementation 'com.uchuhimo:konf:1.1.2'
+    //mqtt
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.2'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    //ini4j file ini
+    implementation("org.ini4j:ini4j:0.5.4")
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.0'
